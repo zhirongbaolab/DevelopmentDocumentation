@@ -1,0 +1,27 @@
+
+Commit Changes to Local, Push to Github Fork via IntelliJ
+	1. In the Version Control window, select the files to be committed
+	2. Press cmd+K or select VCS → Commit Changes
+	3. In the Commit Changes dialog, 
+		Select the checkboxes next to the files you want to commit (if not already selected)
+		Enter a commit message
+		Select relevant ‘Before Commit’ options 
+		Hover over the Commit button and select 'Commit' to just commit to local, OR 'Commit and Push' to commit to local and push the changes to github
+	4. In the Push Commits dialogue, press 'Push'
+Source: https://www.jetbrains.com/help/idea/2017.1/committing-changes-to-a-local-git-repository.html 
+
+Create Pull Request on Github
+	1. Next to the branch selection button, press New Pull Request
+	2. Select the correct base fork (the fork which you would like to integrate your changes into e.g. zhirongbaolab/WormGUIDES)
+	3. Select the correct base (the branch of the base fork which you would like to integrate your changes into e.g. master)
+	4. Select the correct head fork (your fork e.g. bradenkatzman/WormGUIDES)
+	5. Select the correct compare (the branch of your fork which contains the changes to be integrated e.g. search_changes)
+	6. Create a title for your pull request and leave a comment if necessary
+	7. Scroll below the pull request title and comment section and ensure that the correct commits are bundled in the pull request
+	8. Press ‘Create pull request’
+
+Merge Pull Request on Github
+	1. Get to the pull request details page by either clicking the link from your email or by navigating to your repo page and clicking “Pull Requests” (eg. https://github.com/tangydoris/WormGUIDES/pulls)
+	2. Click on the pull request you would like to integrate into your fork and branch
+	3. Check to see if the pull request can be merged. If so, click merge pull request and edit the commit message for the merge if you want to
+	4. If not, follow the commands on the page for pulling the requests to your workspace and manually resolve merge conflicts. You can use IntelliJ’s built-in version control functionality to view the diffs between your version and the pull request. Make whatever changes you need to and commit the result. Github will automatically update after the commit has been pushed.

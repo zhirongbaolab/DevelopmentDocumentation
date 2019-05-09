@@ -1,0 +1,97 @@
+Steps to setup WormGUIDES for development in IntelliJ:
+
+0. Fork project from lab github account, clone to local machine
+	a. While signed in to your github account, go to:
+		https://github.com/zhirongbaolab/WormGUIDES
+	b. Click the 'Fork' button in the top right corner to create a 
+		copy of WormGUIDES on your github account
+	c. To create a copy of your newly forked WormGUIDES repo, open a
+		terminal window (cmd if using Windows) and change directories
+		to wherever you will maintain your project files. Then, type:
+		git clone https://github.com/YOUR_USERNAME/WormGUIDES.git
+	d. Change directories into the newly cloned copy of WormGUIDES
+		on your local machine:
+		cd WormGUIDES
+
+If you haven't downloaded IntelliJ yet, go to: 
+	https://www.jetbrains.com/idea/download/#section=
+	and select Windows, mac, or Linux depending on your machine
+
+1. Create an IntelliJ project
+	1a. If another project is already open in IntelliJ:
+	Select File->New->Project From Existing Sources...
+	1b. If looking at the IntelliJ startup screen:
+	Select New Project, specify JavaFX application, and press Next
+
+2. In the file chooser that appears, select the WormGUIDES directory
+	that you just cloned
+
+3. In the next window, select Create project from existing sources and
+	press Next
+
+4. Make sure the Project name is 'WormGUIDES', the location is correctly
+	set, and the format is .idea (directory based)
+
+5. Make sure that /path/to/dir/WormGUIDES/src is shown in the next window
+	as the source files for the project (it should find this
+	automatically). If it doesn't appear, add the /src directory
+	to this list. Press Next
+
+6. Review the libraries found (this should also be found automatically
+	and you shouldn't need to change anything). Make sure the following
+	libraries appear in the left pane and then press Next:
+	lib
+	WormGUIDES
+
+7. Review the suggested module structure. The left pane should contain
+	WormGUIDES and the right pane should contain the libraries selected
+	in the previous step. Press Next
+
+8. Select 1.8 as the SDK for the project and press Next (using 1.8
+	of 05/19. Update accordingly)
+
+9. Wait for frameworks detection to complete (none should be found).
+	Press Finish
+
+
+ADD WormGUIDES.jar build routine:
+WormGUIDES is packaged as a JAR application for distribution and use
+within the lab. IntelliJ makes building JARs easy by setting your
+build rules for your project. Follow the instructions below to set
+up your WormGUIDES IntelliJ project to easily build JARs.
+
+1. Go to File->Project Structure
+2. In the left navigation panel, select Artifacts
+3. Press the + in the top left portion of the window
+4. Select JAR->From modules with dependencies...
+5. Make the following selections in the resulting window
+	5a. Ensure WormGUIDES is set in the Module field
+	5b. Press the small folder on the right side of the
+		Main Class field and select:
+		 MainApp (application_src.MainApp)
+		Press OK
+	5c. Select extract to the target JAR
+	5d. Directory for META-INF/MANIFEST.MF should be:
+		/path/to/dir/WormGUIDES/src
+		** NOTE: if a MANIFEST.MF already exists there,
+					delete the whole folder first and
+					then start at step 1
+		Press OK
+6. Back in the Project Structure window, update the 
+	Output Directory field at the top of the window to:
+	/path/to/dir/WormGUIDES
+	This will ensure that the resulting JAR is built in the 
+	top level of the WormGUIDES directory, where it has been
+	typically located
+7. Press Apply to save the changes, and OK to close the window
+
+
+Build WormGUIDES JAR:
+1. Select Build->Build Artifacts... (from the top navigation bar)
+2. In the small window that appears, select:
+ WormGUIDES:jar->Build to start the build routine
+
+A status bar should appear on the bottom of the IntelliJ window which
+will indicate when building is done. To trace output of the project,
+run the JAR from a terminal by typing:
+java -jar WormGUIDES.jar (if in WormGUIDES directory already)

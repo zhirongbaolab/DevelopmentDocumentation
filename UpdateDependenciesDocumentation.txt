@@ -1,0 +1,26 @@
+The Zhirong Bao Lab's software suite utilizes on a common data interface
+which enables users to segment, analyze, annotate, curate and visualize their
+microscopy data across all of our software. Further, this enables the applications
+to interface with each other during runtime. The main example of this is the ability
+to view a dataset opened in AceTree in the WormGUIDES application. To achieve this
+tight coupling of software, our applications depend on one another and these
+dependencies need to be updated whenever major changes are implemented. Below is
+a breakdown of the dependencies across the software suite that required updates.
+
+Program: AceTree
+Dependencies: WormGUIDES
+
+Program: Acebatch2
+Dependencies: AceTree
+
+To update these dependencies, simply add the new program build to the respective
+libs/ folder and rebuild the project.
+
+For example, if a change is made to WormGUIDES, after building the new WormGUIDES.jar
+and testing it, follow these steps:
+1. Navigate to your local AceTree repository in a file explorer
+2. Go to the libs/ directory
+3. Delete WormGUIDES.jar
+4. Add the new WormGUIDES.jar to this folder
+5. Rebuild AceTree jar in IntelliJ
+6. Test

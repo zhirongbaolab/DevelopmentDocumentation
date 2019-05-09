@@ -5,10 +5,11 @@ MajorProjectDocumentation/
   WormGUIDESSearchRefactor.txt
   
 ProjectSetupDocumentation/
-  WormGUIDESIntelliJSetup.txt
-  AceTreeIntelliJSetup.txt
   Acebatch2IntelliJSetup.txt
+  AceTreeIntelliJSetup.txt
+  WormGUIDESIntelliJSetup.txt
   WormGUIDESUnitySetup.txt
 
 UpdateDependenciesDocumentation.txt
+VersionControlDocumentation.txt
 WormGUIDESUnityAnimationsDocumentation.txt
