@@ -1,0 +1,86 @@
+The WormGUIDES search infrastructure and logic has been
+implemented in such a way as to make it easily extendable
+to both new kinds of searches and new organisms. The 
+relevant classes are contained in the search package:
+
+WormGUIDES/src/application_src/application_model/search/
+	CElegansSearch/
+		CElegansSearch.java
+		CElegansSearchResults.java
+	ModelSearch/
+		ModelSpecificSearchOps/
+			ModelSpecificSearchUtil.java
+			NeighborsSearch.java
+			StructuresSearch.java
+		EstablishCorrespondence.java
+	SearchConfiguration/
+		SearchOption.java
+		SearchType.java
+	OrganismSearch.java
+	OrganismSearchResults.java
+
+
+TOP LEVEL:
+OrganismSearch.java is the top level interface which defines
+the essential search operations that must be implemented to
+qualify as an organism that can fit into the atlas format of
+WormGUIDES. The data structure for search results is a map
+(an AbstractMap is used in the interface, so your implemention
+can use any data structure which is compatible with this) that
+uses an OrganismDataType object (see SearchType.java), an enum
+which defines common types of biological data, as a key, and a
+List<String> of results as the value.
+
+OrganismSearchResults.java is a parent class which defines the
+method by which search results and the type of those results (as
+defined by OrganismSearch.java) are retrieved.
+
+
+These two files are the starting point for extending WormGUIDES to
+handle data from a different organism. The C Elegans implementation
+and extension of these files serves as a roadmap for extending
+WormGUIDES to support zebrafish, fruit fly, etc. data. The method
+by which OrganismSearch and OrganismSearchResults can be implemented
+is outlined below, using our C Elegans implementation to illustrate.
+
+1. Create a new package in the search/ directory to house the two
+organism specific classes. See:
+	search/
+		CElegansSearch/
+
+2. In the newly created package, create your organism search class
+	and have it *implement* OrganismSearch. See:
+	CElegansSearch.java 
+	--> public class CElegansSearch implements OrganismSearch
+
+	2b. You must, at minimum, implement all of the methods that
+	are defined in OrganismSearch in this new class
+
+	2c. (Optional) Implement more search functions. For C Elegans,
+	we implement a structures search and a neighbors search. For
+	organisational purposes, we recommend placing these model specific
+	searches in their own package, but this is not strictly necessary.
+	See:
+		search/
+			ModelSearch/
+				ModelSpecificSearchOps/
+					ModelSpecificSearchUtil.java
+					NeighborsSearch.java
+					StructuresSearch.java
+
+	*Note: if you're stuck with this step, review interfaces in Java
+
+3. In the newly created package, create your organism search results
+class and have it *extend* OrganismSearchResults. See:
+	CElegansSearchResults.java
+	-> public class CElegansSearchResults extends OrganismSearchResults
+
+	3b. At minimum, create a constructor which matches that in the
+	OrganismSearchResults parent and just makes a super() call
+
+	3c. (Optional) Implement more functions for your results class. For
+	example, CElegansSearchResults contains a hasResults() method
+
+
+
+	*Note: if you're stuck with this step, review inheritance in Java

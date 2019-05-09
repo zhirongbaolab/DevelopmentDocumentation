@@ -1,0 +1,48 @@
+AceTree's data loading pipeline was refactored and in large
+part reimplemented between 10/18-01/19. This document provides
+an overview of the new classes and flow of the data loading
+algorithm.
+
+
+
+Algorithm:
+1. AceTree.java (src/org/rhwlab/acetree/AceTree.java) starts
+	the initialization process in bringUpSeriesUI() from a
+	trigger in the AceMenuBar.java class
+2. In AceTree.bringUpSeriesData(), A Config.java object 
+	(src/org/rhwlab/snight/Config) is built which holds
+	an ImageConfig.java and a NucleiConfig.java object.
+	These two classes correspond to the data in the 
+	supplied .xml file and nuclei .zip file, respectively.
+3. Next, a NucleiMgr.java object (src/org/rhwlab/snight/NucleiMgr)
+	is built using the config data contained in the NucleiConfig
+	object.
+4. The nuclei are processed i.e. named
+5. An ImageManager object (src/org/rhwlab/image/management/ImageManager)
+	is built using the config data contained in the ImageConfig object
+	5b. ImageManager.bringUpImageSeries() does all of the heavy lifting
+		in terms of setting up the dataset. It determines the type of
+		dataset (slices, stack), facilitates conversion to RGB images,
+		and sets up the image prefixes so that the dataset can be
+		efficiently indexed. These tasks are accomplished by delegating
+		to the ImageConversionManager.java and ImageNameLogic.java
+		methods. See these classes for more information.
+6. The lineage tree is built that will be housed in the main AceTree
+	window
+7. The ImageWindow is built and given the first image in the dataset
+8. The annotations are added to the image
+
+
+
+
+New Classes:
+AceTree/src/org/rhwlab/image/management/
+	ImageAnnotationManager.java (TO BE IMPLEMENTED)
+	ImageConfig.java
+	ImageConversionManager.java
+	ImageManager.java
+	ImageSavingManager.java
+	ImageWindowDelegate.java (TO BE IMPLEMENTED)
+
+AceTree/src/org/rhwlab/image/ParsingLogic/ImageNameLogic.java
+AceTree/src/org/rhwlab/snight/NucleiConfig.java
