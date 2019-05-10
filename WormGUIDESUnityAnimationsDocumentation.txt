@@ -1,0 +1,69 @@
+Instructions for creating movies of WormGUIDES in Unity:
+
+1. With Unity open, enter play mode. Because the model is built
+	at runtime, we have to create the animations in play mode
+2. Navitage to the Model_Animation package 
+	(Assets/wormguides/controllers/Model_Animation)
+3. Double click Model_Animator.controller to bring up
+	the Animator window. Make sure that 'Flythrough_Movie'
+	is connected to 'Entry' by an arrow. If it is not, drag
+	'Flythrough_Movie' over 'Entry' to assign it (this connects
+	the movie with the controller)
+4. Open Window->Animation to bring up the Animation window
+5. Now we need to assign the controller to the scene camera so
+	that we can control the camera for the animation. In the
+	project window, click the Model_Animator, drag it to the
+	scene hierarchy panel, hover it over the 'PerspectiveCam'
+	and release.
+6. The previously made animation will likely start to play in
+	the 3D window. To gain control of the animation, click the
+	'PerspectiveCam' in the scene hierarchy and then go to the 
+	'Animation' window. Now the controls in the 'Animation' window
+	will control the behavior in the 3D window
+
+Unity Animations work by setting a series of camera locations that
+the camera then smoothly moves through during play. Below are the
+instructions for adding and editing these custom locations.
+
+0a. Make sure that you are in the 'Scene' window and not the 'Game'
+	window as this is where edits are made. In the 'Scene' window,
+	the camera preview window will provide a preview of what the
+	'Game' window looks like i.e. what the animation will look like
+0b. To add locations, you must be in record mode. In the 'Animation'
+	window, click the red record button to start record mode
+
+To ROTATE the camera: Hold RIGHT CLICK and move the mouse
+To TRANSLATE the camera position: Hold SCROLL and and move the mouse
+	Also available: to translate in a straight line, you can use scroll
+	forward and backward
+
+To ADD A CAMERA LOCATION to the animation:
+1. In the 'Animation' window, move the time bar (white, vertical bar),
+	to the location in the animation where this camera location belongs.
+	Typically, this will be to the right of all previous locations i.e.
+	appending to the end of the current animation.
+2. Move your camera to the desired position in the scene (using the
+	controls above). Make sure that 'PerspectiveCam' is still the 
+	selected item in the scene hierarcy.
+3. Press Ctrl+Shift+F to create a location. In the 'Animation' window,
+	this will create 3 vertical diamonds (or 5 if position and
+	rotation are expanded) that correspond to this stop. You can move
+	all them forward or backward in time to control the speed of trans-
+	lation between the previous location and this location. 
+
+
+To RECORD a Unity animation:
+	A screen capture software is necessary to save the animation as
+	the Unity version we are currently using does not support the assets
+	which achieve this task. A good free screen capture software is
+	OBS studio.
+
+	To save the animation, drag the 'Animation' to one of your two
+	screens and maximize the 'Game' window on your other screen. Use
+	OBS Studio (or other screen capture software of your choice) to 
+
+
+
+
+Quick Guide:
+https://www.youtube.com/watch?v=BmQWh8bBAm0

@@ -1,0 +1,44 @@
+Steps to setup WormGUIDES for development in Unity:
+
+If you do not have a Unity ID yet, create one for free here: 
+https://id.unity.com/en/conversations/64ca8670-03f6-4edd-b4ec-392e117b96f4018f
+
+If you do not have the Unity editor yet, download Unity Personal here:
+https://store.unity.com/download?ref=personal
+
+*Note: ensure that you also download Visual Studio when prompted during
+the Unity Personal installation. It is used for modifying C# scripts
+
+0. Fork project from lab github account, clone to local machine
+	a. While signed in to your github account, go to:
+		https://github.com/zhirongbaolab/WormGUIDES_Unity
+	b. Click the 'Fork' button in the top right corner to create a 
+		copy of AceTree on your github account
+	c. To create a copy of your newly forked WormGUIDES repo, open a
+		terminal window (cmd if using Windows) and change directories
+		to wherever you will maintain your project files. Then, type:
+		git clone https://github.com/YOUR_USERNAME/WormGUIDES_Unity.git
+	d. Change directories into the newly cloned copy of WormGUIDES on your
+		local machine:
+		cd WormGUIDES_Unity
+
+1. Create a Unity project using the New button
+	1a. Name the project: WormGUIDES_Unity
+	1b. Make sure the Location is the path to your local copy of WormGUIDES_Unity
+	1c. Organization field should have your Unity ID
+	1d. Ensure that template is set to 3D
+
+2. To edit scripts, navigate to a script in the Project tab and double click it.
+	This will open the file in Visual Studio
+
+
+To create animations, see the instructions in WormGUIDESUnityAnimationsDocumentation.txt
+
+
+
+To create a WebGL build of WormGUIDES:
+1. Go to File->Build Settings...
+2. Select the MainSceneReleaseStable scene
+3. Select WebGL and uncheck Development build (if selected)
+4. Press Build and then select a directory in which to put the build
+5. In the directory just selected, open index.html 
