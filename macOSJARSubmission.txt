@@ -1,0 +1,24 @@
+Instructions for preparing JAR for submission to the macOS store
+
+0. If your machine doesn't have a JDK installed, install JDK 1.8
+
+1. Use the javapackager tool from Oracle to convert a JAR into a macOS .app
+
+Change directories to the top level of the WormGUIDES repository
+
+$JAVA_HOME/bin/javapackager -deploy -srcdir src/ -srcfiles WormGUIDES.jar -outdir . -outfile WormGUIDES -appclass start.MainApp -native -name WormGUIDES
+
+(Note: the command line arguments for the above command may differ for this JavaFX app.
+These were found from a guide for a java Swing application, so they may differ slightly
+for WormGUIDES)
+
+2. Open XCode and follow the steps in the following guide to submit the newly
+created WormGUIDES.app to the macOS store:
+https://instabug.com/blog/how-to-submit-app-to-app-store/
+
+
+Useful resources:
+1. javapackager documentation: https://docs.oracle.com/javase/8/docs/technotes/tools/unix/javapackager.html
+
+2. javapackager tool overview: https://docs.oracle.com/javase/8/docs/technotes/guides/deploy/packager.html
+
